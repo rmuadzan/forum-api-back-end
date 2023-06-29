@@ -18,7 +18,7 @@ class DetailThreadComment {
     }
 
     if (typeof id !== 'string' || typeof username !== 'string'
-        || typeof created_at !== 'string' || typeof content !== 'string' || typeof is_deleted !== 'boolean') {
+        || !(created_at instanceof Date) || typeof content !== 'string' || typeof is_deleted !== 'boolean') {
       throw new Error('DETAIL_THREAD_COMMENT.NOT_MEET_DATA_TYPE_SPECIFICATION');
     }
   }

@@ -168,8 +168,8 @@ describe('ThreadCommentRepositoryPostgres', () => {
   describe('getAllThreadComments function', () => {
     it('should get all thread comments correctly', async () => {
       // Arrange
-      const date1 = new Date('2021-08-08').toISOString();
-      const date2 = new Date('2022-08-08').toISOString();
+      const date1 = new Date('2021-08-08');
+      const date2 = new Date('2022-08-08');
       await ThreadCommentsTableTestHelper.addComment({
         id: 'comment-123',
         user_id: 'user-123',
@@ -216,9 +216,9 @@ describe('ThreadCommentRepositoryPostgres', () => {
   describe('getAllCommentReplies function', () => {
     it('should get all thread comments correctly', async () => {
       // Arrange
-      const date1 = new Date('2021-08-08').toISOString();
-      const date2 = new Date('2022-08-08').toISOString();
-      const date3 = new Date('2022-10-08').toISOString();
+      const date1 = new Date('2021-08-08');
+      const date2 = new Date('2022-08-08');
+      const date3 = new Date('2022-10-08');
       await ThreadCommentsTableTestHelper.addComment({
         id: 'comment-123',
         user_id: 'user-123',
