@@ -14,11 +14,14 @@ class AddThreadCommentUseCase {
       await this._threadCommentRepository.checkAvailabilityComment(parent_id, thread_id);
     }
 
-    useCasePayload.user_id = user_id;
-    useCasePayload.thread_id = thread_id;
-    useCasePayload.parent_id = parent_id;
-    useCasePayload.type = parent_id ? 'reply' : 'comment';
-    const newThreadComment = new NewThreadComment(useCasePayload);
+    const payload = {
+      ...useCasePayload,
+      user_id,
+      thread_id,
+      parent_id,
+      type: parent_id ? 'reply' : 'comment',
+    };
+    const newThreadComment = new NewThreadComment(payload);
     return this._threadCommentRepository.addComment(newThreadComment);
   }
 }
