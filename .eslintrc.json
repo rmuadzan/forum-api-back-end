@@ -14,9 +14,7 @@
     "rules": {
         "linebreak-style": 0,
         "no-underscore-dangle": "off",
-        "class-methods-use-this": "warn",
-        "no-unused-vars": "warn",
-        "no-param-reassign": "warn",
+        "class-methods-use-this": "off",
         "camelcase": "off"
     }
 }
