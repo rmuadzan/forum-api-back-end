@@ -31,17 +31,22 @@ describe('GetThreadUseCase', () => {
 
     const mockThreadRepository = {};
     const mockThreadCommentRepository = {};
+    const mockCommentLikeRepository = {};
     mockThreadRepository.checkAvailabilityThread = jest.fn()
       .mockImplementation(() => Promise.resolve);
     mockThreadRepository.getThreadById = jest.fn()
       .mockImplementation(() => Promise.resolve(mockDetailThread));
     mockThreadCommentRepository.getAllThreadComments = jest.fn()
       .mockImplementation(() => Promise.resolve([mockDetailComment]));
+    mockCommentLikeRepository.getCommentLikeCount = jest.fn()
+      .mockImplementation(() => Promise.resolve(2));
     mockThreadCommentRepository.getAllCommentReplies = jest.fn()
       .mockImplementation(() => Promise.resolve([mockDetailCommentReply]));
 
     const getThreadUseCase = new GetThreadUseCase({
-      threadRepository: mockThreadRepository, threadCommentRepository: mockThreadCommentRepository,
+      threadRepository: mockThreadRepository,
+      threadCommentRepository: mockThreadCommentRepository,
+      commentLikeRepository: mockCommentLikeRepository,
     });
 
     // Action
@@ -74,6 +79,7 @@ describe('GetThreadUseCase', () => {
       comments: [
         {
           ...expectedComment,
+          likeCount: 2,
           replies: [
             expectedReply,
           ],
@@ -83,6 +89,7 @@ describe('GetThreadUseCase', () => {
     expect(mockThreadRepository.checkAvailabilityThread).toBeCalledWith('thread-123');
     expect(mockThreadRepository.getThreadById).toBeCalledWith('thread-123');
     expect(mockThreadCommentRepository.getAllThreadComments).toBeCalledWith('thread-123');
+    expect(mockCommentLikeRepository.getCommentLikeCount).toBeCalledWith('comment-123');
     expect(mockThreadCommentRepository.getAllCommentReplies).toBeCalledWith('comment-123');
   });
 });

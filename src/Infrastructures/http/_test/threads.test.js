@@ -707,4 +707,67 @@ describe('/threads endpoint', () => {
       expect(responseJson.status).toEqual('success');
     });
   });
+
+  describe('when PUT /threads/{threadId}/comments/{commentId}/likes', () => {
+    it('should response 401 when request authorization header is not exist', async () => {
+      // Arrange
+      const server = await createServer(container);
+
+      // Action
+      const response = await server.inject({
+        method: 'PUT',
+        url: '/threads/thread-123/comments/comment-123/likes',
+      });
+
+      // Assert
+      expect(response.statusCode).toEqual(401);
+    });
+
+    it('should response 404 when comment is not exist', async () => {
+      // Arrange
+      const thread_id = 'thread-123';
+      const comment_id = 'comment-123';
+      await ThreadsTableTestHelper.addThread({ id: thread_id });
+
+      const server = await createServer(container);
+
+      // Action
+      const response = await server.inject({
+        method: 'PUT',
+        url: `/threads/${thread_id}/comments/${comment_id}/likes`,
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      const responseJson = JSON.parse(response.payload);
+      expect(response.statusCode).toEqual(404);
+      expect(responseJson.status).toEqual('fail');
+      expect(responseJson.message).toEqual('comment tidak ditemukan');
+    });
+
+    it('should response 200 and return data correctly', async () => {
+      // Arrange
+      const thread_id = 'thread-123';
+      const comment_id = 'comment-123';
+      await ThreadsTableTestHelper.addThread({ id: thread_id, user_id: 'user-123' });
+      await ThreadCommentsTableTestHelper.addComment({
+        id: comment_id, user_id: 'user-123', thread_id,
+      });
+      const server = await createServer(container);
+
+      // Action
+      const response = await server.inject({
+        method: 'PUT',
+        url: `/threads/${thread_id}/comments/${comment_id}/likes`,
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      const responseJson = JSON.parse(response.payload);
+      expect(response.statusCode).toEqual(200);
+      expect(responseJson.status).toEqual('success');
+    });
+  });
 });
