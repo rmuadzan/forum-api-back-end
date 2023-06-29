@@ -8,7 +8,7 @@ const ThreadCommentsTableTestHelper = {
     thread_id = 'thread-123',
     content = 'This is new comment',
     is_deleted = false,
-    created_at = new Date().toISOString(),
+    created_at = new Date(),
     parent_id,
   }) {
     const query = {

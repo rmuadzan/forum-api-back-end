@@ -9,14 +9,14 @@ describe('GetThreadUseCase', () => {
       id: 'thread-123',
       title: 'A Thread',
       body: 'This is a thread',
-      created_at: '2021-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-08'),
       username: 'dicoding',
     });
 
     const mockDetailComment = new DetailThreadComment({
       id: 'comment-123',
       content: 'This is a comment',
-      created_at: '2022-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-10'),
       username: 'dicoding',
       is_deleted: false,
     });
@@ -24,7 +24,7 @@ describe('GetThreadUseCase', () => {
     const mockDetailCommentReply = new DetailThreadComment({
       id: 'reply-123',
       content: 'This is a reply',
-      created_at: '2022-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-12'),
       username: 'dicoding',
       is_deleted: false,
     });
@@ -57,20 +57,20 @@ describe('GetThreadUseCase', () => {
       id: 'thread-123',
       title: 'A Thread',
       body: 'This is a thread',
-      created_at: '2021-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-08'),
       username: 'dicoding',
     });
     const expectedComment = new DetailThreadComment({
       id: 'comment-123',
       content: 'This is a comment',
-      created_at: '2022-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-10'),
       username: 'dicoding',
       is_deleted: false,
     });
     const expectedReply = new DetailThreadComment({
       id: 'reply-123',
       content: 'This is a reply',
-      created_at: '2022-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-12'),
       username: 'dicoding',
       is_deleted: false,
     });

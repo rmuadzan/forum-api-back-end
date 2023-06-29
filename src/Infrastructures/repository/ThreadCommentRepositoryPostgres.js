@@ -16,7 +16,7 @@ class ThreadCommentRepositoryPostgres extends ThreadCommentRepository {
   }) {
     const id = `${type}-${this._idGenerator()}`;
     const is_deleted = false;
-    const created_at = new Date().toISOString();
+    const created_at = new Date();
 
     const query = {
       text: 'INSERT INTO thread_comments VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id, content, user_id',

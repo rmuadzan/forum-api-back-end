@@ -5,7 +5,7 @@ describe('DetailThreadComment', () => {
     // Arrange
     const payload = {
       username: 'dicoding',
-      created_at: '2021-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-08'),
       content: 'This is a comment',
       is_deleted: false,
     };
@@ -19,7 +19,7 @@ describe('DetailThreadComment', () => {
     const payload = {
       id: 123,
       username: 'dicoding',
-      created_at: '2021-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-08'),
       content: 'This is a comment',
       is_deleted: false,
     };
@@ -33,7 +33,7 @@ describe('DetailThreadComment', () => {
     const payload = {
       id: 'comment-123',
       username: 'dicoding',
-      created_at: '2021-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-08'),
       content: 'This is a comment',
       is_deleted: false,
     };
@@ -54,7 +54,7 @@ describe('DetailThreadComment', () => {
     const payload = {
       id: 'comment-123',
       username: 'dicoding',
-      created_at: '2021-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-08'),
       content: 'This is a comment',
       is_deleted: true,
     };
@@ -75,7 +75,7 @@ describe('DetailThreadComment', () => {
     const payload = {
       id: 'reply-123',
       username: 'dicoding',
-      created_at: '2021-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-08'),
       content: 'This is a comment',
       is_deleted: false,
       parent_id: 'comment-234',
@@ -97,7 +97,7 @@ describe('DetailThreadComment', () => {
     const payload = {
       id: 'reply-123',
       username: 'dicoding',
-      created_at: '2021-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-08'),
       content: 'This is a comment',
       is_deleted: true,
       parent_id: 'comment-234',

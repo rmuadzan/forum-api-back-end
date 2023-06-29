@@ -6,7 +6,7 @@ describe('DetailThread', () => {
     const payload = {
       title: 'A Thread',
       body: 'This is a thread',
-      created_at: '2021-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-08'),
       username: 'dicoding',
     };
 
@@ -20,7 +20,7 @@ describe('DetailThread', () => {
       id: 'thread-123',
       title: 'A Thread',
       body: 'This is a thread',
-      created_at: '2021-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-08'),
       username: ['dicoding'],
     };
 
@@ -34,7 +34,7 @@ describe('DetailThread', () => {
       id: 'thread-123',
       title: 'A Thread',
       body: 'This is a thread',
-      created_at: '2021-08-08T07:19:09.775Z',
+      created_at: new Date('2021-08-08'),
       username: 'dicoding',
     };
 
