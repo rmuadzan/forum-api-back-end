@@ -38,7 +38,7 @@ npm run test
 ### Movies API
 #### Create thread
 
-```http
+```
   POST /threads
 ```
 
@@ -51,7 +51,7 @@ npm run test
 
 #### Get thread detail
 
-```http
+```
   GET /threads/${threadId}
 ```
 
@@ -62,7 +62,7 @@ npm run test
 
 #### Add comment
 
-```http
+```
   POST /threads/${threadId}/comments
 ```
 
@@ -76,7 +76,7 @@ npm run test
 
 #### Delete comment
 
-```http
+```
   DELETE /threads/${threadId}/comments/{commentId}
 ```
 
@@ -87,7 +87,7 @@ npm run test
 
 #### Like and Unlike comment
 
-```http
+```
   PUT /threads/${threadId}/comments/${commentId}/likes
 ```
 
@@ -98,7 +98,7 @@ npm run test
 
 #### Add comment reply
 
-```http
+```
   POST /threads/${threadId}/comments/${commentId}/replies
 ```
 
@@ -113,7 +113,7 @@ npm run test
 
 #### Delete comment reply
 
-```http
+```
   DELETE /threads/${threadId}/comments/${commentId}/replies/${replyId}
 ```
 
