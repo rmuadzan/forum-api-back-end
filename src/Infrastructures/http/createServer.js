@@ -37,6 +37,12 @@ const createServer = async (container) => {
     }),
   });
 
+  server.route({
+    method: 'GET',
+    path: '/',
+    handler: () => 'API for Open Music App',
+  });
+
   await server.register([
     {
       plugin: users,
